@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<!--@thymesVar id="pet" type="com.scottlogic.generated.pet.model.Pet"-->
+<head>
+    <title>Swagger All Pets</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}"/>
+</head>
+
+<body>
+<table>
+    <thead>
+    <tr style="border: 1px solid red">
+        <td>Id</td>
+        <td>Category</td>
+        <td>Name</td>
+        <td>Status</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pet: ${pets}">
+        <td th:text="${pet.id}"/>
+        <td th:text="${pet.category}?${pet.category.name}:'UNKNOWN'"/>
+        <td th:text="${pet.name}"/>
+        <td th:text="${pet.status}"/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>
